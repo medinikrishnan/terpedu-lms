@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // Ensure this is installed with `npm install react-router-dom`
 
 const UserLogin = () => {
   const [userInput, setUserInput] = useState('');
   const [userPassword, setUserPassword] = useState('');
-  const navigation = useNavigate();
+  const navigate = useNavigate(); // Corrected variable name (navigation to navigate for consistency)
 
   const handleUserAuthentication = (event) => {
     event.preventDefault();
-    // To check user authentication logic
+    console.log('Form submitted with:', userInput, userPassword); // Debugging log
+
+    // Simple authentication logic for demonstration
     if (userInput === 'student') {
-      navigation.push('/dashboard-student');
+      console.log('Navigating to student dashboard');
+      navigate('/dashboard-student'); // Corrected function call
     } else if (userInput === 'instructor') {
-      navigation.push('/dashboard-instructor');
+      console.log('Navigating to instructor dashboard');
+      navigate('/dashboard-instructor');
     } else if (userInput === 'admin') {
-      navigation.push('/dashboard-admin');
+      console.log('Navigating to admin dashboard');
+      navigate('/dashboard-admin');
     } else {
       alert('Invalid user credentials');
     }
